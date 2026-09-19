@@ -236,6 +236,25 @@ An interview, placement, online-test, and day-to-day development handbook. Examp
 
 **Useful experiments:** run `strace`, inspect `/proc`, compile the C snippets with `gcc -Wall -Wextra`, and use `top`, `vmstat`, `iostat`, `ss`, and `lsof` while a program runs.
 
+**Coding companion:** use [Oscode.md](Oscode.md) for complete placement-style implementations and starter templates. The topic map below shows where to practice each section.
+
+| Notes topic | Coding practice |
+|---|---|
+| OS foundations | [System calls and `errno`](Oscode.md#system-call-and-errno) |
+| Processes and threads | [`fork`, pipes, `exec`, and thread lifecycle](Oscode.md#3-processes-pipes-and-exec) |
+| CPU scheduling | [FCFS, SJF, SRTF, Priority, and Round Robin](Oscode.md#cpu-scheduling) |
+| Synchronization | [Bounded producer-consumer queue](Oscode.md#producer-consumer-with-a-bounded-buffer) |
+| Deadlocks | [Cycle detection and lock ordering](Oscode.md#deadlock-cycle-detection) |
+| Memory management | [First-fit allocator simulation](Oscode.md#first-fit-memory-allocator-simulation) |
+| Virtual memory | [Address translation and page replacement](Oscode.md#virtual-address-translation) |
+| File systems and storage | [File copying and disk scheduling](Oscode.md#file-systems-and-storage) |
+| I/O and devices | [Nonblocking `poll` event loop](Oscode.md#nonblocking-event-loop) |
+| Interprocess communication | [Pipes, sockets, and shared memory](Oscode.md#interprocess-communication) |
+| Networking | [Length-prefixed TCP server](Oscode.md#networking) |
+| Security and isolation | [Safer file opening](Oscode.md#safer-file-opening) |
+| Linux developer toolkit | [Process diagnosis exercise](Oscode.md#linux-developer-toolkit) |
+| OS design and production trade-offs | [Bounded worker service](Oscode.md#os-design-and-production-trade-offs) |
+
 ## 2. OS Foundations
 
 ### What an operating system does

@@ -17,4 +17,5 @@ A concise study set for operating-system coding rounds, placement interviews, an
 
 ## Working Safely
 
+
 When writing OS-level C code, check every return value, handle partial reads and writes, close resources on every exit path, validate allocation sizes, and document ownership and synchronization assumptions clearly.

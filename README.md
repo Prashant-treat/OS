@@ -4,6 +4,7 @@ A concise study set for operating-system coding rounds, placement interviews, an
 
 ## Contents
 
+
 - [OS coding patterns](Oscode.md): C and POSIX examples on safe input, memory allocation, scheduling, synchronization, processes, pipes, files, sockets, and Linux debugging.
 - [OS notes](OSnotes.md): core concepts, interview-ready explanations, formulas, practice problems, and a revision checklist.
 

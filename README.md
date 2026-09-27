@@ -10,6 +10,7 @@ A concise study set for operating-system coding rounds, placement interviews, an
 
 ## Recommended Study Path
 
+
 1. Review processes, threads, system calls, and context switches.
 2. Practice CPU scheduling, synchronization, deadlocks, and page-replacement problems.
 3. Implement small programs using `fork`, `pipe`, `exec`, pthreads, and sockets.

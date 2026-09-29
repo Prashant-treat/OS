@@ -142,3 +142,41 @@ flowchart LR
 ```
 
 With one instance of each resource, this cycle means deadlock: P1 holds R1 and waits for R2, while P2 holds R2 and waits for R1. A consistent global lock order prevents this circular-wait pattern.
+
+## Process Creation: `fork` and `exec`
+
+```mermaid
+flowchart TD
+    A[Parent process runs] --> B{Calls fork()?}
+    B -- Yes --> C[Kernel creates child process]
+    C --> D[Child gets copy of address space and file table]
+    D --> E{Child calls exec()?}
+    E -- No --> F[Child continues executing its own code]
+    E -- Yes --> G[Replace process image with new program]
+    G --> H[New code, data, and stack loaded]
+    F --> I{Parent waits?}
+    G --> I
+    I -- Yes --> J[Parent calls wait()]
+    I -- No --> K[Parent continues concurrently]
+    J --> L[Child exits or terminates]
+    L --> M[Parent reaps status]
+```
+
+The important distinction is that `fork()` duplicates the process; `exec()` replaces the current execution image without creating a second process.
+
+## File Lookup and Open
+
+```mermaid
+flowchart TD
+    A[User opens /etc/passwd] --> B[Kernel parses path components]
+    B --> C[Resolve root and each directory entry]
+    C --> D[Locate inode for final name]
+    D --> E{Permissions and existence valid?}
+    E -- No --> F[Return ENOENT / EACCES]
+    E -- Yes --> G[Open file description]
+    G --> H[Create FD in process table]
+    H --> I[Read or write using offset and kernel cache]
+    I --> J[Return file descriptor to user]
+```
+
+This shows the common path from pathname to file object: name resolution, inode lookup, permission checks, and descriptor creation. Caching and the VFS layer can hide much of the actual device-specific work.

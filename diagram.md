@@ -136,16 +136,16 @@ This cycle shows circular wait: P1 holds R1 and waits for R2, while P2 holds R2 
 
 ```mermaid
 flowchart TD
-    A[Parent process runs] --> B{Calls fork()?}
+    A[Parent process runs] --> B{"Calls fork()?"}
     B -- Yes --> C[Kernel creates child process]
     C --> D[Child gets copy of address space and file table]
-    D --> E{Child calls exec()?}
+    D --> E{"Child calls exec()?"}
     E -- No --> F[Child continues running its own code]
     E -- Yes --> G[Replace child image with new program]
     G --> H[Load new code, data, and stack]
     F --> I{Parent waits?}
     G --> I
-    I -- Yes --> J[Parent calls wait()]
+    I -- Yes --> J["Parent calls wait()"]
     I -- No --> K[Parent continues independently]
     J --> L[Child exits]
     L --> M[Parent reaps status]
@@ -157,7 +157,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[User calls open("/etc/passwd")] --> B[Kernel parses path components]
+    A["User calls open('/etc/passwd')"] --> B[Kernel parses path components]
     B --> C[Resolve directories and locate final entry]
     C --> D[Find inode for the file]
     D --> E{Exists and permissions are valid?}
